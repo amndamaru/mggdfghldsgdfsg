@@ -47,9 +47,14 @@ opkg install "$LUCI_YT_IPK"
 
 # --- 3) Podkop installer ---
 say "[4/6] Устанавливаю podkop…"
-# В busybox/ash нельзя использовать процессную подстановку <(...).
-# Поэтому качаем и передаём в sh через pipe:
-yes да | wget -O- https://raw.githubusercontent.com/itdoginfo/podkop/refs/heads/main/install.sh | sh
+cd /tmp
+wget -O podkop_install.sh "https://raw.githubusercontent.com/itdoginfo/podkop/refs/heads/main/install.sh"
+chmod +x podkop_install.sh
+
+# Подавать ответы именно установщику:
+yes y | sh /tmp/podkop_install.sh
+# если скрипт ждёт русские ответы:
+# yes да | sh /tmp/podkop_install.sh
 
 # --- 4) Заменить конфиг youtubeUnblock из твоего репозитория в /etc/configs/ ---
 say "[5/6] Обновляю файл конфигурации в $CFG_PATH…"
