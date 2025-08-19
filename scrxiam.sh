@@ -57,11 +57,6 @@ sh /tmp/podkop_install.sh
 say "[5/6] Обновляю файл конфигурации в $CFG_PATH…"
 mkdir -p "$CFG_DIR"
 
-if [ -f "$CFG_PATH" ]; then
-  cp "$CFG_PATH" "$CFG_PATH.bak.$(date +%Y%m%d-%H%M%S)"
-  warn "Старый файл сохранён как $(basename "$CFG_PATH").bak.*"
-fi
-
 # Скачиваем «raw» вариант файла, а не web-страницу GitHub
 wget --no-check-certificate -O "$CFG_PATH.new" "$RAW_CFG_URL"
 mv -f "$CFG_PATH.new" "$CFG_PATH"
