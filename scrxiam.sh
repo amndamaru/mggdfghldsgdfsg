@@ -1,6 +1,5 @@
 #!/bin/sh
 # OpenWrt setup: base pkgs + youtubeUnblock + podkop + replace /etc/config/youtubeUnblock
-# Лира ❤
 
 set -e
 
