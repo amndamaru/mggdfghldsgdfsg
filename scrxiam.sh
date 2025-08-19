@@ -1,5 +1,5 @@
 #!/bin/sh
-# OpenWrt setup: base pkgs + youtubeUnblock + podkop + replace /etc/configs/youtubeUnblock
+# OpenWrt setup: base pkgs + youtubeUnblock + podkop + replace /etc/config/youtubeUnblock
 # Лира ❤
 
 set -e
@@ -13,7 +13,7 @@ err() { printf "${RED}%s${NC}\n" "$*" >&2; }
 [ "$(id -u)" -eq 0 ] || { err "Нужны root-права. Запусти: sudo -i, затем sh $0"; exit 1; }
 
 RAW_CFG_URL="https://raw.githubusercontent.com/amndamaru/mggdfghldsgdfsg/main/youtubeUnblock"
-CFG_DIR="/etc/configs"
+CFG_DIR="/etc/config"
 CFG_PATH="$CFG_DIR/youtubeUnblock"
 
 # --- 1) OPKG update + базовые пакеты ---
